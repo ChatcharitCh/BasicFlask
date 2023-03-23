@@ -13,7 +13,10 @@ def about():
 
 @app.route('/admin')
 def admin():
-    return render_template("admin.html")
+    # name age
+    name = "Chatcharit"
+    age = 27
+    return render_template("admin.html", myname = name, myage = age) # ส่งข้อมูลไปใน Template
 
 
 @app.route('/user/<name>/<age>') # นิยามพารามิเตอร์ (Dynamic Routing)
