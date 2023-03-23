@@ -4,8 +4,9 @@ app = Flask(__name__)
 
 @app.route('/') # นิยามเส้นทางในการเข้าถึงข้อมูล
 def index():
+    data = {"name": "Chatcharit", "age": 27, "salary": 25000}
     #return "<h1>Hello Flask Framework</h1>"
-    return render_template("index.html")
+    return render_template("index.html",mydata = data)
 
 @app.route('/about')
 def about():
