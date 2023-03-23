@@ -15,7 +15,7 @@ def about():
 
 @app.route('/admin')
 def admin():
-    # name age
+    
     username = "Chatcharit"
     return render_template("admin.html", username = username) # ส่งข้อมูลไปใน Template
 
