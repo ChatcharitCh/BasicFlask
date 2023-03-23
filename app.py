@@ -10,7 +10,8 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template("about.html")
+    products = ["Larb", "Som-Tum", "Pad-Thai", "Tom-Yum-Kung", "Panage"]
+    return render_template("about.html", myproduct = products)
 
 @app.route('/admin')
 def admin():
