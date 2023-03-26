@@ -1,28 +1,13 @@
-{% extends "layout.html" %} <!-- ดึงเค้าโครงจาก layout-->
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% include "layout.html" %} <!--  ดึงเค้าโครงจาก layout -->
 
+{% block title%}
+    Welcome to Homepage
+{% endblock %}
 {% block content %}
 <div class="container my-2">
-    <form method="POST">
-        {{form.hidden_tag()}}
-        {{form.name.label}}
-        {{form.name()}}
-
-        <!-- Boolean Field -->
-        <br>
-        {{form.isAccept()}}{{form.isAccept.label}}
-        <br>
-        <!-- Radio Field -->
-        {{form.gender.label}}{{form.gender()}}
-        <br>
-        <!-- Select Field -->
-        {{form.skills.label}}{{form.skills()}}
-        <br>
-        <!-- Area Field -->
-        {{form.address.label}}{{form.address()}}
-        <br>
-
-        {{form.submit()}} 
-    </form>
+    {{wtf.quick_form(form)}} <!-- สร้างฟอร์มให้เราเองเลย -->
     <hr>
     {% if session['name'] %}
         Your name is <strong>{{session['name']}}</strong><br>

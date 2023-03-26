@@ -2,15 +2,17 @@ from flask import Flask, render_template,request, session # render_template ใ�
 from flask_wtf import FlaskForm # ตัวที่ใช้สำหรับออกแบบฟอร์ม
 from wtforms import StringField, SubmitField, BooleanField, RadioField, SelectField, TextAreaField
 from wtforms.validators import DataRequired
+from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykey'
+Bootstrap(app) # ตั้งค่า object flask
 
 class MyForm(FlaskForm): # ออกแบบฟอร์ม
     name = StringField("Enter your name", validators = [DataRequired()])
     isAccept = BooleanField("Accept Policy")
-    gender = RadioField("Sex", choices = [('Male', 'male'), ('Female', 'female'), ('Other', 'other')])
+    gender = RadioField("Sex", choices = [('Male', 'Male'), ('Female', 'Female'), ('Other', 'Other')])
     skills = SelectField("Skills", choices = [('Python', 'Python'), ('JavaScript', 'JavaScript'), ('C++', 'C++'), ('C#', 'C#'), 
                                               ('C', 'C'), ('PHP', 'PHP'), ('Flutter', 'Flutter')])
     address = TextAreaField("Address")
