@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request, session # render_template ใช้ในการแสดงผล
+from flask import Flask, render_template,request, session, flash # render_template ใช้ในการแสดงผล
 from flask_wtf import FlaskForm # ตัวที่ใช้สำหรับออกแบบฟอร์ม
 from wtforms import StringField, SubmitField, BooleanField, RadioField, SelectField, TextAreaField
 from wtforms.validators import DataRequired
@@ -24,6 +24,7 @@ def index():
     form = MyForm()
     
     if form.validate_on_submit():
+        flash("Save Successful")
         # ช่วยให้สามารถกระจายข้อมูลไปทำงานในหน้าเว็บ
         session['name'] = form.name.data
         session['isAccept'] = form.isAccept.data
